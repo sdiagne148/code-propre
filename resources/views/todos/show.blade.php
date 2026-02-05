@@ -22,7 +22,7 @@
 
             <div class="mt-3">
                 <a href="{{ route('todos.index') }}" class="btn btn-secondary">
-                    ← Retour à la liste
+                     Retour à la liste
                 </a>
             </div>
         </div>
