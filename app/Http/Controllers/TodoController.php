@@ -48,4 +48,10 @@ class TodoController extends Controller
 
         return view('todos.index', compact('todos', 'filter', 'counts'));
     }
+
+public function show($id)
+{
+    $todo = Todo::find($id);
+    return view('todos.show', compact('todo'));
+}
 }
