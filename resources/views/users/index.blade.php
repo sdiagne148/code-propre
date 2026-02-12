@@ -131,6 +131,7 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Bio</th>
                         <th>Created At</th>
                         <th>Actions</th>
                     </tr>
@@ -141,6 +142,7 @@
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>{{ \Illuminate\Support\Str::limit($user->bio, 40) }}</td>
                             <td>{{ $user->created_at->format('Y-m-d') }}</td>
                             <td>
                                 <div class="actions">
