@@ -140,6 +140,7 @@
                 <div class="detail-label">Bio:</div>
                 <div class="detail-value">{{ $user->bio ?: 'No bio provided.' }}</div>
             </div>
+         
             <div class="detail-row">
                 <div class="detail-label">Created At:</div>
                 <div class="detail-value">{{ $user->created_at->format('Y-m-d H:i:s') }}</div>

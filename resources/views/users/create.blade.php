@@ -124,6 +124,8 @@
                     <div class="error">{{ $message }}</div>
                 @enderror
             </div>
+              
+
 
             <div class="form-group">
                 <label for="bio">Bio</label>
