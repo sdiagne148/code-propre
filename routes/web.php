@@ -9,7 +9,8 @@ Route::get('/', function () {
 });
 
 Route::get('/todos', [TodoController::class, 'index'])->name('todos.index');
-
+Route::get('/todos/create', [TodoController::class, 'create'])->name('todos.create');
+Route::post('/todos', [TodoController::class, 'store'])->name('todos.store');
 
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 Route::get('/users/create', [UserController::class, 'create'])->name('users.create');

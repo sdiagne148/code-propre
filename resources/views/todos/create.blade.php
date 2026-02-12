@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create User</title>
-    <style>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      
+
+    <title>Document</title>
+ <style>
          {
             margin: 0;
             padding: 0;
@@ -97,77 +100,51 @@
             margin-bottom: 20px;
         }
     </style>
+
 </head>
 <body>
     <div class="container">
-        <h1>Create New User</h1>
+        <h1>Créer une nouvelle tâche</h1>
 
-        @if(session('success'))
-            <div class="success">{{ session('success') }}</div>
-        @endif
-
-        <form action="{{ route('users.store') }}" method="POST">
+        <form action="{{ route('todos.store') }}" method="POST">
             @csrf
 
+            
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" value="{{ old('name') }}" required>
-                @error('name')
+                <label for="title">Name</label>
+                <input type="text" id="title" name="title" value="{{ old('title') }}" required>
+                @error('title')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+            </div>
+        <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description">{{ old('description') }}</textarea>
+                @error('description')
                     <div class="error">{{ $message }}</div>
                 @enderror
             </div>
 
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" value="{{ old('email') }}" required>
-                @error('email')
-                    <div class="error">{{ $message }}</div>
-                @enderror
+            <div class="form-group"> 
+                <label for="user_id">Assign to User</label>
+                <select id="user_id" name="user_id" required> 
+                    <option value="">Select a user</option>
+                    @foreach($users as $user) 
+                    <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}> {{ $user->name }} </option> 
+                    @endforeach 
+                </select>
+                @error('user_id') 
+                <div class="error">{{ $message }}</div> 
+                @enderror 
             </div>
-             <div class="form-group">
-                <label for="phone">Phone</label>
-                <input type="text" id="phone" name="phone" value="{{ old('phone') }}" required>
-                @error('phone')
-,                    <div class="error">{{ $message }}</div>
-                @enderror
-            </div>
-
-
-            <div class="form-group">
-                <label for="bio">Bio</label>
-                <textarea id="bio" name="bio" rows="4">{{ old('bio') }}</textarea>
-                @error('bio')
-                    <div class="error">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                <label for="avatar_url">Avatar URL</label>
-                <input type="text" id="avatar_url" name="avatar_url" value="{{ old('avatar_url') }}">
-                @error('avatar_url')
-                    <div class="error">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-                @error('password')
-                    <div class="error">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                <label for="password_confirmation">Confirm Password</label>
-                <input type="password" id="password_confirmation" name="password_confirmation" required>
-            </div>
-
+            
             <div class="btn-group">
-                <button type="submit" class="btn btn-primary">Create User</button>
-                <a href="{{ route('users.index') }}" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-primary">Create Todo</button>
+                <a href="{{ route('todos.index') }}" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
+
+        <a href="{{ route('todos.index') }}">← Retour à la liste des tâches</a>
     </div>
 </body>
 </html>
-
