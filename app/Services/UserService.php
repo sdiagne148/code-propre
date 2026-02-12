@@ -51,7 +51,7 @@ class UserService
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'email_verified_at' => now(),
-            'phone' => $data['phone'] ?? null,
+   
         ];
 
         return $this->userRepository->create($userData);
@@ -69,7 +69,7 @@ class UserService
         $updateData = [
             'name' => $data['name'],
             'email' => $data['email'],
-            'phone' => $data['phone'] ?? null,
+          
         ];
 
         if (isset($data['password']) && !empty($data['password'])) {

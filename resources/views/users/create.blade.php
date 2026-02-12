@@ -123,13 +123,7 @@
                     <div class="error">{{ $message }}</div>
                 @enderror
             </div>
-               <div class="form-group">
-                <label for="phone">Phone</label>
-                <input type="text" id="phone" name="phone" value="{{ old('phone') }}" required>
-                @error('phone')
-                    <div class="error">{{ $message }}</div>
-                @enderror
-            </div>
+              
 
 
             <div class="form-group">

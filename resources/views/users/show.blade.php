@@ -121,10 +121,7 @@
                 <div class="detail-label">Email:</div>
                 <div class="detail-value">{{ $user->email }}</div>
             </div>
-            <div class="detail-row">
-                <div class="detail-label">Phone:</div>
-                <div class="detail-value">{{ $user->phone }}</div>
-            </div>
+         
             <div class="detail-row">
                 <div class="detail-label">Created At:</div>
                 <div class="detail-value">{{ $user->created_at->format('Y-m-d H:i:s') }}</div>
