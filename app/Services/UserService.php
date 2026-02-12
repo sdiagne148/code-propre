@@ -71,6 +71,7 @@ class UserService
         $updateData = [
             'name' => $data['name'],
             'email' => $data['email'],
+            'phone' => $data['phone'] ?? null,
             'bio' => $data['bio'] ?? null,
             'avatar_url' => $data['avatar_url'] ?? null,
 

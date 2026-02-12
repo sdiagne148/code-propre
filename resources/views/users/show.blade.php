@@ -140,6 +140,10 @@
                 <div class="detail-label">Bio:</div>
                 <div class="detail-value">{{ $user->bio ?: 'No bio provided.' }}</div>
             </div>
+               <div class="detail-row">
+                <div class="detail-label">Phone:</div>
+                <div class="detail-value">{{ $user->phone }}</div>
+            </div>
          
             <div class="detail-row">
                 <div class="detail-label">Created At:</div>
