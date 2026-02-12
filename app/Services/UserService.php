@@ -68,6 +68,7 @@ class UserService
         $updateData = [
             'name' => $data['name'],
             'email' => $data['email'],
+            'phone' => $data['phone'] ?? null,
         ];
 
         if (isset($data['password']) && !empty($data['password'])) {
