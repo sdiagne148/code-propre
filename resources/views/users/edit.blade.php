@@ -40,7 +40,8 @@
         }
         input[type="text"],
         input[type="email"],
-        input[type="password"] {
+        input[type="password"],
+        textarea {
             width: 100%;
             padding: 12px;
             border: 2px solid #e0e0e0;
@@ -133,6 +134,22 @@
                 @enderror
             </div>
              
+
+            <div class="form-group">
+                <label for="bio">Bio</label>
+                <textarea id="bio" name="bio" rows="4">{{ old('bio', $user->bio) }}</textarea>
+                @error('bio')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="avatar_url">Avatar URL</label>
+                <input type="text" id="avatar_url" name="avatar_url" value="{{ old('avatar_url', $user->avatar_url) }}">
+                @error('avatar_url')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+            </div>
 
             <div class="form-group">
                 <label for="password">New Password (leave blank to keep current password)</label>

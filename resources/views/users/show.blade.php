@@ -52,6 +52,18 @@
             color: #333;
             flex: 1;
         }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #667eea;
+            margin-bottom: 10px;
+        }
         .btn {
             padding: 12px 30px;
             border: none;
@@ -102,24 +114,31 @@
 </head>
 <body>
     <div class="container">
-        <h1>User Details</h1>
+        <h1>User Profile</h1>
 
         @if(session('success'))
             <div class="success">{{ session('success') }}</div>
         @endif
 
         <div class="user-details">
+            <div class="profile-header">
+                @if ($user->avatar_url)
+                    <img src="{{ $user->avatar_url }}" alt="Avatar of {{ $user->name }}" class="avatar">
+                @else
+                    <div class="avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display:flex; align-items:center; justify-content:center; color:white; font-weight:600;">
+                        {{ strtoupper(substr($user->name, 0, 1)) }}
+                    </div>
+                @endif
+                <div><strong>{{ $user->name }}</strong></div>
+                <div style="color:#666; font-size:14px;">{{ $user->email }}</div>
+            </div>
             <div class="detail-row">
                 <div class="detail-label">ID:</div>
                 <div class="detail-value">{{ $user->id }}</div>
             </div>
             <div class="detail-row">
-                <div class="detail-label">Name:</div>
-                <div class="detail-value">{{ $user->name }}</div>
-            </div>
-            <div class="detail-row">
-                <div class="detail-label">Email:</div>
-                <div class="detail-value">{{ $user->email }}</div>
+                <div class="detail-label">Bio:</div>
+                <div class="detail-value">{{ $user->bio ?: 'No bio provided.' }}</div>
             </div>
          
             <div class="detail-row">

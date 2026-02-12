@@ -25,6 +25,8 @@ class StoreUserRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'bio' => ['nullable', 'string', 'max:1000'],
+            'avatar_url' => ['nullable', 'url', 'max:255'],
         ];
     }
 
@@ -43,6 +45,7 @@ class StoreUserRequest extends FormRequest
             'password.required' => 'The password field is required.',
             'password.min' => 'The password must be at least 8 characters.',
             'password.confirmed' => 'The password confirmation does not match.',
+            'avatar_url.url' => 'The avatar URL must be a valid URL.',
         ];
     }
 }
