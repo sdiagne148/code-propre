@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create User</title>
     <style>
-        * {
+        {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -102,9 +102,9 @@
     <div class="container">
         <h1>Create New User</h1>
 
-        @if(session('success'))
+ {{--        @if(session('success'))
             <div class="success">{{ session('success') }}</div>
-        @endif
+        @endif --}}
 
         <form action="{{ route('users.store') }}" method="POST">
             @csrf
@@ -124,12 +124,14 @@
                     <div class="error">{{ $message }}</div>
                 @enderror
             </div>
+
              <div class="form-group">
                 <label for="phone">Phone</label>
                 <input type="text" id="phone" name="phone" value="{{ old('phone') }}" required>
                 @error('phone')
-              
-
+                    <div class="error">{{ $message }}</div>
+                @enderror
+             </div>
 
             <div class="form-group">
                 <label for="bio">Bio</label>
