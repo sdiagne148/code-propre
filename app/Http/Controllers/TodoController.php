@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Todo;
 use Illuminate\Http\Request;
 use App\Services\TodoService;
+use App\Services\UserService;
 use Illuminate\View\View;
 use App\Models\User;
 
@@ -14,7 +15,8 @@ class TodoController extends Controller
      * @param TodoService $todoService
      */
     public function __construct(
-        private readonly TodoService $todoService
+        private readonly TodoService $todoService,
+        private readonly UserService $userService
     ) {
     }
 
@@ -33,8 +35,8 @@ class TodoController extends Controller
     public function create(): View 
     
     {
-        $users = User::all();
-        return view('todos.create', compact('users'));
+        $users = $this->userService->getVerifiedUsers();
+        
     }
 
     public function store(Request $request)
