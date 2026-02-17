@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit User</title>
     <style>
-        * {
+         {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -137,8 +137,9 @@
                 <label for="phone">Phone</label>
                 <input type="text" id="phone" name="phone" value="{{ old('phone', $user->phone) }}" required>
                 @error('phone')
-             
-
+                    <div class="error">{{ $message }}</div>
+                @enderror
+             </div>
             <div class="form-group">
                 <label for="bio">Bio</label>
                 <textarea id="bio" name="bio" rows="4">{{ old('bio', $user->bio) }}</textarea>

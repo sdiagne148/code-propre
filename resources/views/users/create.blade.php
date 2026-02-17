@@ -102,9 +102,9 @@
     <div class="container">
         <h1>Create New User</h1>
 
-        @if(session('success'))
+ {{--        @if(session('success'))
             <div class="success">{{ session('success') }}</div>
-        @endif
+        @endif --}}
 
         <form action="{{ route('users.store') }}" method="POST">
             @csrf
@@ -124,6 +124,7 @@
                     <div class="error">{{ $message }}</div>
                 @enderror
             </div>
+
              <div class="form-group">
                 <label for="phone">Phone</label>
                 <input type="text" id="phone" name="phone" value="{{ old('phone') }}" required>
