@@ -10,11 +10,6 @@ on:
   pull_request:
     branches: [main]
 
-# Répertoire de travail par défaut pour toutes les commandes
-defaults:
-  run:
-    working-directory: code-propre
-
 jobs:
   # ---------------------------------------------------------------------------
   # Job 1 : Tests unitaires et fonctionnels (PHP 8.2 + 8.3, MySQL, couverture)
@@ -59,8 +54,8 @@ jobs:
       - name: Cache Composer dependencies
         uses: actions/cache@v4
         with:
-          path: code-propre/vendor
-          key: composer-${{ hashFiles('code-propre/composer.lock') }}
+          path: vendor
+          key: composer-${{ hashFiles('composer.lock') }}
 
       # Installation des dépendances PHP
       - name: Install dependencies
@@ -99,7 +94,7 @@ jobs:
         uses: codecov/codecov-action@v4
         if: matrix.php-version == '8.2'
         with:
-          files: code-propre/coverage.xml
+          files: coverage.xml
           fail_ci_if_error: false
 
   # ---------------------------------------------------------------------------
@@ -119,17 +114,14 @@ jobs:
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
-        working-directory: code-propre
 
       # Analyse statique du code (détection d'erreurs)
       - name: Run PHPStan
         run: ./vendor/bin/phpstan analyse --memory-limit=512M
-        working-directory: code-propre
 
       # Vérification du style de code (Pint en mode --test, pas de modification)
       - name: Run Laravel Pint (style)
         run: ./vendor/bin/pint --test
-        working-directory: code-propre
 
   # ---------------------------------------------------------------------------
   # Job 3 : Build des assets frontend (Node.js, npm, Vite)
@@ -147,22 +139,20 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: code-propre/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
         run: npm ci
-        working-directory: code-propre
 
       - name: Build assets
         run: npm run build
-        working-directory: code-propre
 
       # Sauvegarde du build pour le job deploy (artifact)
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: frontend-build
-          path: code-propre/public/build
+          path: public/build
 
   # ---------------------------------------------------------------------------
   # Job 4 : Déploiement en production (uniquement push sur main)
@@ -183,7 +173,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: frontend-build
-          path: code-propre/public/build
+          path: public/build
 
       # Connexion SSH au serveur et exécution des commandes de déploiement
       - name: Deploy to server
