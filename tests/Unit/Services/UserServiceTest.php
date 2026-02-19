@@ -125,10 +125,18 @@ class UserServiceTest extends TestCase
             'email' => $updateData['email'],
         ]);
 
+        // Le service enrichit $updateData avec phone, bio, avatar_url (null si absents)
         $this->mockRepository
             ->shouldReceive('update')
             ->once()
-            ->with($user, $updateData)
+            ->with($user, Mockery::on(function ($data) use ($updateData) {
+                return $data['name'] === $updateData['name']
+                    && $data['email'] === $updateData['email']
+                    && array_key_exists('phone', $data)
+                    && array_key_exists('bio', $data)
+                    && array_key_exists('avatar_url', $data)
+                    && !isset($data['password']);
+            }))
             ->andReturn($updatedUser);
 
         $result = $this->userService->updateUser($user, $updateData);
