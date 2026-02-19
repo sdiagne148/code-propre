@@ -1,0 +1,204 @@
+# .github/workflows/laravel.yml
+# CI/CD Laravel - Ajusté pour ce projet (PHP 8.2+, Pint, PHPStan, SQLite/MySQL)
+
+name: Laravel CI/CD
+
+# Déclenchement du workflow
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+# Répertoire de travail par défaut pour toutes les commandes
+defaults:
+  run:
+    working-directory: code-propre
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Job 1 : Tests unitaires et fonctionnels (PHP 8.2 + 8.3, MySQL, couverture)
+  # ---------------------------------------------------------------------------
+  tests:
+    name: Tests (PHP ${{ matrix.php-version }})
+    runs-on: ubuntu-latest
+
+    # Exécution en parallèle pour PHP 8.2 et 8.3
+    strategy:
+      matrix:
+        php-version: ['8.2', '8.3']
+
+    # Service MySQL pour les tests (base "testing")
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: testing
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+      # Récupération du code source
+      - uses: actions/checkout@v4
+
+      # Installation de PHP avec extensions et Xdebug (couverture)
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: mbstring, pdo, pdo_mysql
+          coverage: xdebug
+
+      # Cache des dépendances Composer (accélère les runs suivants)
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: code-propre/vendor
+          key: composer-${{ hashFiles('code-propre/composer.lock') }}
+
+      # Installation des dépendances PHP
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      # Copie .env.example → .env et génération de la clé d'application
+      - name: Setup environment
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      # Migrations de la base de test (MySQL)
+      - name: Run database migrations
+        env:
+          DB_CONNECTION: mysql
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_DATABASE: testing
+          DB_USERNAME: root
+          DB_PASSWORD: password
+        run: php artisan migrate --force
+
+      # Exécution des tests avec couverture minimale 80 %
+      - name: Run tests with coverage
+        env:
+          DB_CONNECTION: mysql
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_DATABASE: testing
+          DB_USERNAME: root
+          DB_PASSWORD: password
+        run: php artisan test --coverage --min=80
+
+      # Envoi du rapport de couverture à Codecov (une fois par matrix, ici PHP 8.2)
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        if: matrix.php-version == '8.2'
+        with:
+          files: code-propre/coverage.xml
+          fail_ci_if_error: false
+
+  # ---------------------------------------------------------------------------
+  # Job 2 : Qualité de code (PHPStan + Laravel Pint)
+  # ---------------------------------------------------------------------------
+  code-quality:
+    name: Code Quality
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+        working-directory: code-propre
+
+      # Analyse statique du code (détection d'erreurs)
+      - name: Run PHPStan
+        run: ./vendor/bin/phpstan analyse --memory-limit=512M
+        working-directory: code-propre
+
+      # Vérification du style de code (Pint en mode --test, pas de modification)
+      - name: Run Laravel Pint (style)
+        run: ./vendor/bin/pint --test
+        working-directory: code-propre
+
+  # ---------------------------------------------------------------------------
+  # Job 3 : Build des assets frontend (Node.js, npm, Vite)
+  # ---------------------------------------------------------------------------
+  frontend:
+    name: Frontend Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Node.js 20 avec cache npm
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: code-propre/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: code-propre
+
+      - name: Build assets
+        run: npm run build
+        working-directory: code-propre
+
+      # Sauvegarde du build pour le job deploy (artifact)
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: code-propre/public/build
+
+  # ---------------------------------------------------------------------------
+  # Job 4 : Déploiement en production (uniquement push sur main)
+  # ---------------------------------------------------------------------------
+  deploy:
+    name: Deploy to Production
+    # Attendre que tous les jobs de validation aient réussi
+    needs: [tests, code-quality, frontend]
+    # Exécution uniquement sur push vers main (pas sur PR ni develop)
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Récupération du build frontend produit par le job "frontend"
+      - name: Download frontend artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-build
+          path: code-propre/public/build
+
+      # Connexion SSH au serveur et exécution des commandes de déploiement
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          # Commandes exécutées sur le serveur (pull, composer, migrations, caches, reload FPM)
+          script: |
+            cd /var/www/app
+            git pull origin main
+            composer install --no-dev --optimize-autoloader
+            php artisan migrate --force
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+            sudo systemctl reload php8.2-fpm
