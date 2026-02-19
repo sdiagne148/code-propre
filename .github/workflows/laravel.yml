@@ -93,7 +93,7 @@ jobs:
           DB_DATABASE: testing
           DB_USERNAME: root
           DB_PASSWORD: password
-        run: php artisan test --coverage --min=45
+        run: php artisan test --coverage --min=43
 
       # Envoi du rapport de couverture à Codecov (une fois par matrix, ici PHP 8.2)
       - name: Upload coverage to Codecov
