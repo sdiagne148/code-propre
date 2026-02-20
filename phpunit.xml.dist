@@ -16,23 +16,55 @@
         <include>
             <directory>app</directory>
         </include>
+        <!-- Exclure du calcul de couverture : pas de tests unitaires requis -->
+        <exclude>
+            <!-- Controllers : couverts par les tests Feature / HTTP -->
+            <directory>app/Http/Controllers</directory>
+            <!-- Form Requests : validation couverte par les tests Feature -->
+            <directory>app/Http/Requests</directory>
+            <!-- Providers : configuration / bootstrap -->
+            <directory>app/Providers</directory>
+            <!-- Interfaces : pas de code exécutable -->
+            <directory>app/Repositories/Contracts</directory>
+        </exclude>
     </source>
+    <!--
+        Couverture de code : génération d'un rapport au format Clover (XML).
+        Le fichier coverage.xml est produit à chaque "php artisan test" et sert
+        notamment à Codecov / GitHub Actions pour afficher le taux de couverture et faire
+        échouer le build si le minimum (ex. 80 %) n'est pas atteint.
+    -->
     <coverage>
         <report>
             <clover outputFile="coverage.xml"/>
         </report>
     </coverage>
+
+    <!--
+        Variables d'environnement PHP injectées pendant les tests.
+        Elles remplacent .env pour avoir un environnement reproductible et isolé.
+    -->
     <php>
+        <!-- Environnement Laravel : mode "testing" (pas de debug, logs adaptés) -->
         <env name="APP_ENV" value="testing"/>
+        <!-- Mode maintenance : stockage fichier (pas de cache Redis/DB) -->
         <env name="APP_MAINTENANCE_DRIVER" value="file"/>
+        <!-- Bcrypt : 4 rounds en test pour accélérer Hash::make() -->
         <env name="BCRYPT_ROUNDS" value="4"/>
+        <!-- Désactiver broadcasting (WebSockets) -->
         <env name="BROADCAST_CONNECTION" value="null"/>
+        <!-- Cache en mémoire (array) : pas de Redis/File en test -->
         <env name="CACHE_STORE" value="array"/>
+        <!-- Base de données : SQLite en mémoire (rapide, effacée après les tests) -->
         <env name="DB_CONNECTION" value="sqlite"/>
         <env name="DB_DATABASE" value=":memory:"/>
+        <!-- Mail : tableau en mémoire (pas d'envoi réel) -->
         <env name="MAIL_MAILER" value="array"/>
+        <!-- Files d'attente : exécution synchrone (pas de worker) -->
         <env name="QUEUE_CONNECTION" value="sync"/>
+        <!-- Sessions : stockage tableau (pas de cookie/DB) -->
         <env name="SESSION_DRIVER" value="array"/>
+        <!-- Désactiver les outils Laravel non nécessaires aux tests -->
         <env name="PULSE_ENABLED" value="false"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
         <env name="NIGHTWATCH_ENABLED" value="false"/>
