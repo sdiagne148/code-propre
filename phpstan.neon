@@ -3,6 +3,9 @@ includes:
 
 parameters:
     level: 5
+    # Pdo\Mysql (PHP 8.5+) : PHPStan ne connaît pas encore cette classe dans config/database.php
+    ignoreErrors:
+        - '#Access to constant ATTR_SSL_CA on an unknown class Pdo\\Mysql#'
     paths:
         - app
         - config

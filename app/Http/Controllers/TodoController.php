@@ -32,11 +32,11 @@ class TodoController extends Controller
         return view('todos.index', compact('todos'));
     }
 
-    public function create(): View 
-    
+    public function create(): View
     {
         $users = $this->userService->getVerifiedUsers();
-        
+
+        return view('todos.create', compact('users'));
     }
 
     public function store(Request $request)

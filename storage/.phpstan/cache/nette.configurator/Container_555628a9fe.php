@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-class Container_93d520d18d extends _PHPStan_5adafcbb8\Nette\DI\Container
+class Container_555628a9fe extends _PHPStan_5adafcbb8\Nette\DI\Container
 {
 	protected $tags = [
 		'phpstan.broker.dynamicMethodReturnTypeExtension' => [
@@ -3408,7 +3408,11 @@ class Container_93d520d18d extends _PHPStan_5adafcbb8\Nette\DI\Container
 
 	public function createService0117(): PHPStan\Analyser\Ignore\IgnoredErrorHelper
 	{
-		return new PHPStan\Analyser\Ignore\IgnoredErrorHelper($this->getService('05'), [], true);
+		return new PHPStan\Analyser\Ignore\IgnoredErrorHelper(
+			$this->getService('05'),
+			['#Access to constant ATTR_SSL_CA on an unknown class Pdo\\\Mysql#'],
+			true
+		);
 	}
 
 
@@ -5638,7 +5642,7 @@ class Container_93d520d18d extends _PHPStan_5adafcbb8\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_93d520d18d $container)
+			public function __construct(Container_555628a9fe $container)
 			{
 				$this->container = $container;
 			}
@@ -5658,7 +5662,7 @@ class Container_93d520d18d extends _PHPStan_5adafcbb8\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_93d520d18d $container)
+			public function __construct(Container_555628a9fe $container)
 			{
 				$this->container = $container;
 			}
@@ -5706,7 +5710,7 @@ class Container_93d520d18d extends _PHPStan_5adafcbb8\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_93d520d18d $container)
+			public function __construct(Container_555628a9fe $container)
 			{
 				$this->container = $container;
 			}
@@ -5729,7 +5733,7 @@ class Container_93d520d18d extends _PHPStan_5adafcbb8\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_93d520d18d $container)
+			public function __construct(Container_555628a9fe $container)
 			{
 				$this->container = $container;
 			}
@@ -5749,7 +5753,7 @@ class Container_93d520d18d extends _PHPStan_5adafcbb8\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_93d520d18d $container)
+			public function __construct(Container_555628a9fe $container)
 			{
 				$this->container = $container;
 			}
@@ -5814,7 +5818,7 @@ class Container_93d520d18d extends _PHPStan_5adafcbb8\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_93d520d18d $container)
+			public function __construct(Container_555628a9fe $container)
 			{
 				$this->container = $container;
 			}
@@ -5872,7 +5876,7 @@ class Container_93d520d18d extends _PHPStan_5adafcbb8\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_93d520d18d $container)
+			public function __construct(Container_555628a9fe $container)
 			{
 				$this->container = $container;
 			}
@@ -5930,7 +5934,7 @@ class Container_93d520d18d extends _PHPStan_5adafcbb8\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_93d520d18d $container)
+			public function __construct(Container_555628a9fe $container)
 			{
 				$this->container = $container;
 			}
@@ -5994,7 +5998,7 @@ class Container_93d520d18d extends _PHPStan_5adafcbb8\Nette\DI\Container
 			private $container;
 
 
-			public function __construct(Container_93d520d18d $container)
+			public function __construct(Container_555628a9fe $container)
 			{
 				$this->container = $container;
 			}
@@ -9153,7 +9157,7 @@ class Container_93d520d18d extends _PHPStan_5adafcbb8\Nette\DI\Container
 	}
 
 
-	public function createServiceContainer(): Container_93d520d18d
+	public function createServiceContainer(): Container_555628a9fe
 	{
 		return $this;
 	}
@@ -9642,7 +9646,7 @@ class Container_93d520d18d extends _PHPStan_5adafcbb8\Nette\DI\Container
 			'tipsOfTheDay' => true,
 			'reportMagicMethods' => true,
 			'reportMagicProperties' => true,
-			'ignoreErrors' => [],
+			'ignoreErrors' => ['#Access to constant ATTR_SSL_CA on an unknown class Pdo\\\Mysql#'],
 			'internalErrorsCountLimit' => 50,
 			'cache' => ['nodesByStringCountMax' => 256],
 			'reportUnmatchedIgnoredErrors' => true,
@@ -9806,63 +9810,110 @@ class Container_93d520d18d extends _PHPStan_5adafcbb8\Nette\DI\Container
 			'usedLevel' => '5',
 			'cliAutoloadFile' => null,
 			'env' => [
-				'NVM_INC' => '/Users/macbookpro/.nvm/versions/node/v22.14.0/include/node',
-				'TERM_PROGRAM' => 'vscode',
-				'PHP_BINARY' => '/opt/homebrew/Cellar/php@8.3/8.3.17/bin/php',
-				'NVM_CD_FLAGS' => '-q',
-				'TERM' => 'xterm-256color',
-				'SHELL' => '/bin/zsh',
-				'COMPOSER_BINARY' => '/opt/homebrew/Cellar/composer/2.7.9/bin/composer',
-				'HOMEBREW_REPOSITORY' => '/opt/homebrew',
-				'TMPDIR' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/',
-				'CURSOR_CLI' => 'ELECTRON_RUN_AS_NODE=1 "/Applications/Cursor.app/Contents/MacOS/Cursor" "/Applications/Cursor.app/Contents/Resources/app/out/cli.js"',
-				'TERM_PROGRAM_VERSION' => '2.0.75',
-				'ZDOTDIR' => '/Users/macbookpro',
-				'CURSOR_TRACE_ID' => '46a5f162311540219156d0aeaf8436c1',
-				'ORIGINAL_XDG_CURRENT_DESKTOP' => 'undefined',
-				'MallocNanoZone' => '0',
-				'TERM_SESSION_ID' => 'B2C87C8C-27BD-44F3-ADF0-1C2BE2A9D81C',
-				'ZSH' => '/Users/macbookpro/.oh-my-zsh',
-				'NVM_DIR' => '/Users/macbookpro/.nvm',
-				'USER' => 'macbookpro',
-				'LS_COLORS' => 'di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43',
+				'ALL_PROXY' => 'http://127.0.0.1:53742',
+				'BUNDLE_PATH' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/bundle',
+				'BUN_INSTALL_CACHE_DIR' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/bun',
+				'CARGO_TARGET_DIR' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/cargo-target',
+				'CCACHE_DIR' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/ccache',
+				'COLORTERM' => 'truecolor',
 				'COMMAND_MODE' => 'unix2003',
-				'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.IjHNauxgFI/Listeners',
-				'VSCODE_PROFILE_INITIALIZED' => '1',
-				'__CF_USER_TEXT_ENCODING' => '0x1F5:0x0:0x1',
-				'PAGER' => 'less',
-				'LSCOLORS' => 'Gxfxcxdxbxegedabagacad',
-				'PATH' => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/vendor/bin:/Users/macbookpro/.codeium/windsurf/bin:/Users/macbookpro/.nvm/versions/node/v22.14.0/bin:/opt/homebrew/opt/icu4c@76/sbin:/opt/homebrew/opt/icu4c@76/bin:/opt/homebrew/Cellar/php/8.1.6/sbin:/opt/homebrew/Cellar/php/8.1.6/bin:/Applications/MAMP/Library/bin/mysql80/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pmk/env/global/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/macbookpro/.codeium/windsurf/bin:/Users/macbookpro/.nvm/versions/node/v22.14.0/bin:/opt/homebrew/opt/icu4c@76/sbin:/opt/homebrew/opt/icu4c@76/bin:/opt/homebrew/Cellar/php/8.1.6/sbin:/opt/homebrew/Cellar/php/8.1.6/bin:/Applications/MAMP/Library/bin/mysql80/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/Users/macbookpro/.dotnet/tools:/Users/macbookpro/.dotnet/tools',
-				'_' => './vendor/bin/phpstan',
-				'LaunchInstanceID' => '6867E0FB-4E53-42EA-A104-F594C076FD32',
-				'USER_ZDOTDIR' => '/Users/macbookpro',
-				'__CFBundleIdentifier' => 'com.todesktop.230313mzl4w4u92',
-				'PWD' => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre',
-				'LANG' => 'fr_FR.UTF-8',
+				'COMPOSER_HOME' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/composer',
+				'CONDA_PKGS_DIRS' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/conda',
+				'CP_HOME_DIR' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/cocoapods',
+				'CURSOR_AGENT' => '1',
+				'CURSOR_CLI' => 'ELECTRON_RUN_AS_NODE=1 "/Applications/Cursor.app/Contents/MacOS/Cursor" "/Applications/Cursor.app/Contents/Resources/app/out/cli.js"',
 				'CURSOR_CLI_MODE' => 'local',
-				'VSCODE_GIT_ASKPASS_EXTRA_ARGS' => '',
-				'XPC_FLAGS' => '0x0',
-				'XPC_SERVICE_NAME' => '0',
-				'VSCODE_INJECTION' => '1',
-				'SHELL_VERBOSITY' => '0',
-				'SHLVL' => '4',
+				'CURSOR_EXTENSION_HOST_ROLE' => 'agent-exec',
+				'CURSOR_SANDBOX' => 'seatbelt',
+				'CURSOR_TRACE_ID' => '68040383f55648f78727a0748b6dcd98',
+				'CYPRESS_CACHE_FOLDER' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/cypress',
+				'ELECTRON_NO_ATTACH_CONSOLE' => '1',
+				'ELECTRON_RUN_AS_NODE' => '1',
+				'FORCE_COLOR' => '0',
+				'GEM_SPEC_CACHE' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/gem-specs',
+				'GIT_HTTPS_PROXY' => 'http://127.0.0.1:53742',
+				'GIT_HTTP_PROXY' => 'http://127.0.0.1:53742',
+				'GOCACHE' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/go-build',
+				'GOMODCACHE' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/go-mod',
+				'GRADLE_USER_HOME' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/gradle',
 				'HOME' => '/Users/macbookpro',
-				'VSCODE_GIT_ASKPASS_MAIN' => '/Applications/Cursor.app/Contents/Resources/app/extensions/git/dist/askpass-main.js',
-				'LANGUAGE' => 'C',
+				'HOMEBREW_CACHE' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/homebrew',
+				'HOMEBREW_CELLAR' => '/opt/homebrew/Cellar',
 				'HOMEBREW_PREFIX' => '/opt/homebrew',
+				'HOMEBREW_REPOSITORY' => '/opt/homebrew',
+				'HTTPS_PROXY' => 'http://127.0.0.1:53742',
+				'HTTP_PROXY' => 'http://127.0.0.1:53742',
+				'INFOPATH' => '/opt/homebrew/share/info:/opt/homebrew/share/info:',
+				'LANG' => 'fr_FR.UTF-8',
 				'LESS' => '-R',
 				'LOGNAME' => 'macbookpro',
-				'VSCODE_GIT_IPC_HANDLE' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/vscode-git-97c25a725f.sock',
+				'LSCOLORS' => 'Gxfxcxdxbxegedabagacad',
+				'LS_COLORS' => 'di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43',
+				'LaunchInstanceID' => 'CEEA03F8-896B-43BE-A8AD-6506F8CECB45',
+				'MallocNanoZone' => '0',
+				'NO_COLOR' => '1',
+				'NO_PROXY' => '127.0.0.1,::1,localhost',
+				'NPM_CONFIG_CACHE' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/npm',
+				'NUGET_PACKAGES' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/nuget',
 				'NVM_BIN' => '/Users/macbookpro/.nvm/versions/node/v22.14.0/bin',
-				'VSCODE_GIT_ASKPASS_NODE' => '/Applications/Cursor.app/Contents/Frameworks/Cursor Helper (Plugin).app/Contents/MacOS/Cursor Helper (Plugin)',
-				'HOMEBREW_CELLAR' => '/opt/homebrew/Cellar',
-				'INFOPATH' => '/opt/homebrew/share/info:/opt/homebrew/share/info:',
-				'GIT_ASKPASS' => 'echo',
+				'NVM_CD_FLAGS' => '-q',
+				'NVM_DIR' => '/Users/macbookpro/.nvm',
+				'NVM_INC' => '/Users/macbookpro/.nvm/versions/node/v22.14.0/include/node',
+				'NX_CACHE_DIRECTORY' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/nx',
 				'OSLogRateLimit' => '64',
-				'SECURITYSESSIONID' => '186b6',
-				'COLORTERM' => 'truecolor',
-				'LINES' => '12',
-				'COLUMNS' => '121',
+				'PAGER' => 'less',
+				'PATH' => '/Users/macbookpro/.codeium/windsurf/bin:/Users/macbookpro/.nvm/versions/node/v22.14.0/bin:/opt/homebrew/opt/icu4c@76/sbin:/opt/homebrew/opt/icu4c@76/bin:/opt/homebrew/Cellar/php/8.1.6/sbin:/opt/homebrew/Cellar/php/8.1.6/bin:/Applications/MAMP/Library/bin/mysql80/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pmk/env/global/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/macbookpro/.codeium/windsurf/bin:/Users/macbookpro/.nvm/versions/node/v22.14.0/bin:/opt/homebrew/opt/icu4c@76/sbin:/opt/homebrew/opt/icu4c@76/bin:/opt/homebrew/Cellar/php/8.1.6/sbin:/opt/homebrew/Cellar/php/8.1.6/bin:/Applications/MAMP/Library/bin/mysql80/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/Users/macbookpro/.dotnet/tools:/Users/macbookpro/.dotnet/tools',
+				'PIP_CACHE_DIR' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/pip',
+				'PLAYWRIGHT_BROWSERS_PATH' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/playwright',
+				'PNPM_STORE_PATH' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/pnpm-store',
+				'POETRY_CACHE_DIR' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/poetry',
+				'PUPPETEER_CACHE_DIR' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/puppeteer',
+				'PWD' => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre',
+				'SECURITYSESSIONID' => '186b0',
+				'SHELL' => '/bin/zsh',
+				'SHLVL' => '3',
+				'SOCKS5_PROXY' => 'socks5://127.0.0.1:53741',
+				'SOCKS_PROXY' => 'socks5://127.0.0.1:53741',
+				'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.GXXMR4ap09/Listeners',
+				'TERM' => 'dumb',
+				'TERM_PROGRAM' => 'Apple_Terminal',
+				'TERM_PROGRAM_VERSION' => '466',
+				'TERM_SESSION_ID' => 'AD751BBE-4FD8-4B9E-94C0-C922FD4C184D',
+				'TMPDIR' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/',
+				'TURBO_CACHE_DIR' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/turbo',
+				'USER' => 'macbookpro',
+				'UV_CACHE_DIR' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/uv',
+				'VSCODE_CLI' => '1',
+				'VSCODE_CODE_CACHE_PATH' => '/Users/macbookpro/Library/Application Support/Cursor/CachedData/7b98dcb824ea96c9c62362a5e80dbf0d1aae4770',
+				'VSCODE_CRASH_REPORTER_PROCESS_TYPE' => 'extensionHost',
+				'VSCODE_CWD' => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre',
+				'VSCODE_ESM_ENTRYPOINT' => 'vs/workbench/api/node/extensionHostProcess',
+				'VSCODE_HANDLES_UNCAUGHT_ERRORS' => 'true',
+				'VSCODE_IPC_HOOK' => '/Users/macbookpro/Library/Application Support/Cursor/2.5.-main.sock',
+				'VSCODE_NLS_CONFIG' => '{"userLocale":"fr","osLocale":"fr-fr","resolvedLanguage":"en","defaultMessagesFile":"/Applications/Cursor.app/Contents/Resources/app/out/nls.messages.json","locale":"fr","availableLanguages":{}}',
+				'VSCODE_PID' => '1356',
+				'VSCODE_PROCESS_TITLE' => 'extension-host (agent-exec) [3-9]',
+				'XPC_FLAGS' => '0x0',
+				'XPC_SERVICE_NAME' => '0',
+				'YARN_CACHE_FOLDER' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/yarn',
+				'ZSH' => '/Users/macbookpro/.oh-my-zsh',
+				'_ZO_DOCTOR' => '0',
+				'__CFBundleIdentifier' => 'com.todesktop.230313mzl4w4u92',
+				'__CF_USER_TEXT_ENCODING' => '0x1F5:0x0:0x1',
+				'__CURSOR_SANDBOX_ENV_RESTORE' => 'builtin export HTTP_PROXY=\'http://127.0.0.1:53742\'; builtin export HTTPS_PROXY=\'http://127.0.0.1:53742\'; builtin export http_proxy=\'http://127.0.0.1:53742\'; builtin export https_proxy=\'http://127.0.0.1:53742\'; builtin export GIT_HTTP_PROXY=\'http://127.0.0.1:53742\'; builtin export GIT_HTTPS_PROXY=\'http://127.0.0.1:53742\'; builtin export SOCKS_PROXY=\'socks5://127.0.0.1:53741\'; builtin export SOCKS5_PROXY=\'socks5://127.0.0.1:53741\'; builtin export socks_proxy=\'socks5://127.0.0.1:53741\'; builtin export socks5_proxy=\'socks5://127.0.0.1:53741\'; builtin export ALL_PROXY=\'http://127.0.0.1:53742\'; builtin export all_proxy=\'http://127.0.0.1:53742\'; builtin export NO_PROXY=\'127.0.0.1,::1,localhost\'; builtin export no_proxy=\'127.0.0.1,::1,localhost\'',
+				'all_proxy' => 'http://127.0.0.1:53742',
+				'http_proxy' => 'http://127.0.0.1:53742',
+				'https_proxy' => 'http://127.0.0.1:53742',
+				'no_proxy' => '127.0.0.1,::1,localhost',
+				'npm_config_devdir' => '/var/folders/pd/dtsyhp9s7t79n1hjpg5b3g5w0000gn/T/cursor-sandbox-cache/dd460304fd2ce6786dedfbace0dc9858/node-gyp',
+				'socks5_proxy' => 'socks5://127.0.0.1:53741',
+				'socks_proxy' => 'socks5://127.0.0.1:53741',
+				'OLDPWD' => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre',
+				'CI' => '1',
+				'_' => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/./vendor/bin/phpstan',
+				'LINES' => '50',
+				'COLUMNS' => '80',
+				'SHELL_VERBOSITY' => '0',
 			],
 		];
 	}

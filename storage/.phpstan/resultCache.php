@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
 
 return [
-	'lastFullAnalysisTime' => 1766515920,
+	'lastFullAnalysisTime' => 1771954090,
 	'meta' => array (
   'cacheVersion' => 'v12-linesToIgnore',
   'phpstanVersion' => '2.1.33',
@@ -23,7 +23,7 @@ return [
   ),
   'composerLocks' => 
   array (
-    '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/composer.lock' => 'e867f15e4ef14d6b9d9dacf20fcba28659f893a7',
+    '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/composer.lock' => '09fa2630b7e4a3272f8b0204cb258472f3c0398d',
   ),
   'composerInstalled' => 
   array (
@@ -1947,6 +1947,18 @@ return [
 	'unmatchedLineIgnores' => array (
 ),
 	'collectedDataCallback' => static function (): array { return array (
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Controllers/TodoController.php' => 
+  array (
+    'Larastan\\Larastan\\Collectors\\UsedViewFunctionCollector' => 
+    array (
+      0 => 'todos.index',
+      1 => 'todos.create',
+    ),
+    'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
+    array (
+      0 => 'App\\Http\\Controllers\\TodoController',
+    ),
+  ),
   '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Controllers/UserController.php' => 
   array (
     'Larastan\\Larastan\\Collectors\\UsedViewFunctionCollector' => 
@@ -1956,17 +1968,9 @@ return [
       2 => 'users.show',
       3 => 'users.edit',
     ),
-    'PHPStan\\Rules\\DeadCode\\PossiblyPureMethodCallCollector' => 
+    'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
     array (
-      0 => 
-      array (
-        0 => 
-        array (
-          0 => 'App\\Http\\Controllers\\UserController',
-        ),
-        1 => 'createUser',
-        2 => 37,
-      ),
+      0 => 'App\\Http\\Controllers\\UserController',
     ),
   ),
   '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Requests/StoreUserRequest.php' => 
@@ -2011,6 +2015,25 @@ return [
       ),
     ),
   ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Models/Todo.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'App\\Models\\Todo',
+        1 => 'casts',
+        2 => 'App\\Models\\Todo',
+      ),
+    ),
+    'PHPStan\\Rules\\Traits\\TraitUseCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+      ),
+    ),
+  ),
   '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Models/User.php' => 
   array (
     'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
@@ -2031,6 +2054,20 @@ return [
       ),
     ),
   ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Services/TodoService.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
+    array (
+      0 => 'App\\Services\\TodoService',
+    ),
+  ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Services/UserService.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
+    array (
+      0 => 'App\\Services\\UserService',
+    ),
+  ),
   '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/database/seeders/DatabaseSeeder.php' => 
   array (
     'PHPStan\\Rules\\Traits\\TraitUseCollector' => 
@@ -2043,17 +2080,13 @@ return [
   ),
   '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/routes/web.php' => 
   array (
-    'Larastan\\Larastan\\Collectors\\UsedViewFunctionCollector' => 
-    array (
-      0 => 'welcome',
-    ),
     'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
     array (
       0 => 
       array (
         0 => 'Illuminate\\Support\\Facades\\Route',
         1 => 'get',
-        2 => 6,
+        2 => 7,
       ),
     ),
   ),
@@ -2064,13 +2097,22 @@ return [
     'fileHash' => 'a33a5105f92c73a309c9f8a549905dcdf6dccbae',
     'dependentFiles' => 
     array (
-      0 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Controllers/UserController.php',
-      1 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/routes/web.php',
+      0 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Controllers/TodoController.php',
+      1 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Controllers/UserController.php',
+      2 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/routes/web.php',
+    ),
+  ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Controllers/TodoController.php' => 
+  array (
+    'fileHash' => 'd22289442ba4be29b9156d263a8bd9b9f9716acb',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/routes/web.php',
     ),
   ),
   '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Controllers/UserController.php' => 
   array (
-    'fileHash' => '13fc08ee061ff7d3a1bf3b3afdf92c37c7b17c2d',
+    'fileHash' => 'e209145b17a46b38c7473db1c4f2a1ee33da5acf',
     'dependentFiles' => 
     array (
       0 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/routes/web.php',
@@ -2078,7 +2120,7 @@ return [
   ),
   '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Requests/StoreUserRequest.php' => 
   array (
-    'fileHash' => '54dde43d1c8a9c64f95df4d763ceba55c225609e',
+    'fileHash' => '41bc0c877a92971b5a36c67b6741bfb08c2276f7',
     'dependentFiles' => 
     array (
       0 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Controllers/UserController.php',
@@ -2086,28 +2128,98 @@ return [
   ),
   '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Requests/UpdateUserRequest.php' => 
   array (
-    'fileHash' => '75fa744018da19be7f93bf5f9f0315ba68e25161',
+    'fileHash' => 'd38ca6cc4c1343c61ed9fbff4f0c4a83b6fa2b12',
     'dependentFiles' => 
     array (
       0 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Controllers/UserController.php',
+    ),
+  ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Models/Todo.php' => 
+  array (
+    'fileHash' => '36476693727651e8e61ea888112be3c8d00eccc0',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Controllers/TodoController.php',
+      1 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Repositories/Contracts/TodoRepositoryInterface.php',
+      2 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Repositories/TodoRepository.php',
+      3 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Services/TodoService.php',
+      4 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/database/factories/TodoFactory.php',
     ),
   ),
   '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Models/User.php' => 
   array (
-    'fileHash' => 'c247398a884933bee32a8a0c5e9ca280677889fd',
+    'fileHash' => 'fcab6f1ac1f0925df88e980c7c569f0d52a8f1ee',
     'dependentFiles' => 
     array (
       0 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Controllers/UserController.php',
-      1 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/config/auth.php',
-      2 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/database/factories/UserFactory.php',
-      3 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/database/seeders/DatabaseSeeder.php',
+      1 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Models/Todo.php',
+      2 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Repositories/Contracts/UserRepositoryInterface.php',
+      3 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Repositories/UserRepository.php',
+      4 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Services/UserService.php',
+      5 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/config/auth.php',
+      6 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/database/factories/TodoFactory.php',
+      7 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/database/factories/UserFactory.php',
+      8 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/database/seeders/DatabaseSeeder.php',
     ),
   ),
   '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Providers/AppServiceProvider.php' => 
   array (
-    'fileHash' => '01bf9e5cf5bb666446625056b618445ae4749675',
+    'fileHash' => '37447d219ae3adb34b6ddfad2e78d2f5e73a4895',
     'dependentFiles' => 
     array (
+    ),
+  ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Repositories/Contracts/TodoRepositoryInterface.php' => 
+  array (
+    'fileHash' => '460dd930fc88e58e335dc61f3137024860327531',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Providers/AppServiceProvider.php',
+      1 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Repositories/TodoRepository.php',
+      2 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Services/TodoService.php',
+    ),
+  ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Repositories/Contracts/UserRepositoryInterface.php' => 
+  array (
+    'fileHash' => 'd586fa3ec22c8a8dfc1e7cf2154b12c0597f9874',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Providers/AppServiceProvider.php',
+      1 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Repositories/UserRepository.php',
+      2 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Services/UserService.php',
+    ),
+  ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Repositories/TodoRepository.php' => 
+  array (
+    'fileHash' => '4847355acaa4e7ce6d3780b11993df03e4628ae0',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Providers/AppServiceProvider.php',
+    ),
+  ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Repositories/UserRepository.php' => 
+  array (
+    'fileHash' => '3758286cd00e9d59233a2e912b60b04bdc4caec7',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Providers/AppServiceProvider.php',
+    ),
+  ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Services/TodoService.php' => 
+  array (
+    'fileHash' => '8ab09b55d81b0ab4eaee66d47a94e1f0589c966a',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Controllers/TodoController.php',
+    ),
+  ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Services/UserService.php' => 
+  array (
+    'fileHash' => 'eade0301971fe7c856808fd25fddb48df935f0b1',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Controllers/TodoController.php',
+      1 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Controllers/UserController.php',
     ),
   ),
   '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/config/app.php' => 
@@ -2180,13 +2292,21 @@ return [
     array (
     ),
   ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/database/factories/TodoFactory.php' => 
+  array (
+    'fileHash' => '57107ce21e83a5f0b6435908554d56688b330524',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
   '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/database/factories/UserFactory.php' => 
   array (
-    'fileHash' => '7ac74334b97dded2308b4265ca46014b317a82f9',
+    'fileHash' => 'a6026b1304bad44d2d2120501cd27642bb4a1bd2',
     'dependentFiles' => 
     array (
       0 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Models/User.php',
-      1 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/database/seeders/DatabaseSeeder.php',
+      1 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/database/factories/TodoFactory.php',
+      2 => '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/database/seeders/DatabaseSeeder.php',
     ),
   ),
   '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/database/seeders/DatabaseSeeder.php' => 
@@ -2205,7 +2325,7 @@ return [
   ),
   '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/routes/web.php' => 
   array (
-    'fileHash' => '79147bc5112a69e5f99f814ec13815ca507b0c27',
+    'fileHash' => 'a65c0052bb03a14154e6150757d42ffb42690d9f',
     'dependentFiles' => 
     array (
     ),
@@ -2238,6 +2358,175 @@ return [
       ),
     )),
   ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Controllers/TodoController.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Controllers\\TodoController',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'App\\Http\\Controllers\\Controller',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param TodoService $todoService
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'request' => 'Illuminate\\Http\\Request',
+              'todoservice' => 'App\\Services\\TodoService',
+              'userservice' => 'App\\Services\\UserService',
+              'view' => 'Illuminate\\View\\View',
+              'user' => 'App\\Models\\User',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'todoService',
+               'type' => 'App\\Services\\TodoService',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'userService',
+               'type' => 'App\\Services\\UserService',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'index',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Affiche la liste des tâches.
+     *
+     * @return View
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'request' => 'Illuminate\\Http\\Request',
+              'todoservice' => 'App\\Services\\TodoService',
+              'userservice' => 'App\\Services\\UserService',
+              'view' => 'Illuminate\\View\\View',
+              'user' => 'App\\Models\\User',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\View\\View',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'create',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\View\\View',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'store',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
   '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Http/Controllers/UserController.php' => 
   array (
     0 => 
@@ -2260,6 +2549,53 @@ return [
       array (
         0 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param UserService $userService
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'storeuserrequest' => 'App\\Http\\Requests\\StoreUserRequest',
+              'updateuserrequest' => 'App\\Http\\Requests\\UpdateUserRequest',
+              'user' => 'App\\Models\\User',
+              'userservice' => 'App\\Services\\UserService',
+              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
+              'view' => 'Illuminate\\View\\View',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'userService',
+               'type' => 'App\\Services\\UserService',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'index',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
@@ -2272,6 +2608,7 @@ return [
               'storeuserrequest' => 'App\\Http\\Requests\\StoreUserRequest',
               'updateuserrequest' => 'App\\Http\\Requests\\UpdateUserRequest',
               'user' => 'App\\Models\\User',
+              'userservice' => 'App\\Services\\UserService',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
               'view' => 'Illuminate\\View\\View',
             ),
@@ -2293,7 +2630,7 @@ return [
           array (
           ),
         )),
-        1 => 
+        2 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'create',
            'phpDoc' => 
@@ -2307,6 +2644,7 @@ return [
               'storeuserrequest' => 'App\\Http\\Requests\\StoreUserRequest',
               'updateuserrequest' => 'App\\Http\\Requests\\UpdateUserRequest',
               'user' => 'App\\Models\\User',
+              'userservice' => 'App\\Services\\UserService',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
               'view' => 'Illuminate\\View\\View',
             ),
@@ -2328,7 +2666,7 @@ return [
           array (
           ),
         )),
-        2 => 
+        3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'store',
            'phpDoc' => 
@@ -2342,6 +2680,7 @@ return [
               'storeuserrequest' => 'App\\Http\\Requests\\StoreUserRequest',
               'updateuserrequest' => 'App\\Http\\Requests\\UpdateUserRequest',
               'user' => 'App\\Models\\User',
+              'userservice' => 'App\\Services\\UserService',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
               'view' => 'Illuminate\\View\\View',
             ),
@@ -2374,7 +2713,7 @@ return [
           array (
           ),
         )),
-        3 => 
+        4 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'show',
            'phpDoc' => 
@@ -2388,52 +2727,7 @@ return [
               'storeuserrequest' => 'App\\Http\\Requests\\StoreUserRequest',
               'updateuserrequest' => 'App\\Http\\Requests\\UpdateUserRequest',
               'user' => 'App\\Models\\User',
-              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
-              'view' => 'Illuminate\\View\\View',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\View\\View',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'user',
-               'type' => 'App\\Models\\User',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        4 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'edit',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * Show the form for editing the specified resource.
-     */',
-             'namespace' => 'App\\Http\\Controllers',
-             'uses' => 
-            array (
-              'storeuserrequest' => 'App\\Http\\Requests\\StoreUserRequest',
-              'updateuserrequest' => 'App\\Http\\Requests\\UpdateUserRequest',
-              'user' => 'App\\Models\\User',
+              'userservice' => 'App\\Services\\UserService',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
               'view' => 'Illuminate\\View\\View',
             ),
@@ -2468,6 +2762,53 @@ return [
         )),
         5 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'edit',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Show the form for editing the specified resource.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'storeuserrequest' => 'App\\Http\\Requests\\StoreUserRequest',
+              'updateuserrequest' => 'App\\Http\\Requests\\UpdateUserRequest',
+              'user' => 'App\\Models\\User',
+              'userservice' => 'App\\Services\\UserService',
+              'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
+              'view' => 'Illuminate\\View\\View',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\View\\View',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'user',
+               'type' => 'App\\Models\\User',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        6 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'update',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
@@ -2480,6 +2821,7 @@ return [
               'storeuserrequest' => 'App\\Http\\Requests\\StoreUserRequest',
               'updateuserrequest' => 'App\\Http\\Requests\\UpdateUserRequest',
               'user' => 'App\\Models\\User',
+              'userservice' => 'App\\Services\\UserService',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
               'view' => 'Illuminate\\View\\View',
             ),
@@ -2523,7 +2865,7 @@ return [
           array (
           ),
         )),
-        6 => 
+        7 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'destroy',
            'phpDoc' => 
@@ -2537,6 +2879,7 @@ return [
               'storeuserrequest' => 'App\\Http\\Requests\\StoreUserRequest',
               'updateuserrequest' => 'App\\Http\\Requests\\UpdateUserRequest',
               'user' => 'App\\Models\\User',
+              'userservice' => 'App\\Services\\UserService',
               'redirectresponse' => 'Illuminate\\Http\\RedirectResponse',
               'view' => 'Illuminate\\View\\View',
             ),
@@ -2821,6 +3164,142 @@ return [
       ),
     )),
   ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Models/Todo.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Models\\Todo',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Database\\Eloquent\\Model',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'fillable',
+          ),
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'casts',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'user',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Relation avec l\'utilisateur.
+     *
+     * @return \\Illuminate\\Database\\Eloquent\\Relations\\BelongsTo
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
   '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Models/User.php' => 
   array (
     0 => 
@@ -3028,6 +3507,8 @@ return [
              'namespace' => 'App\\Providers',
              'uses' => 
             array (
+              'userrepositoryinterface' => 'App\\Repositories\\Contracts\\UserRepositoryInterface',
+              'userrepository' => 'App\\Repositories\\UserRepository',
               'serviceprovider' => 'Illuminate\\Support\\ServiceProvider',
             ),
              'constUses' => 
@@ -3059,6 +3540,8 @@ return [
              'namespace' => 'App\\Providers',
              'uses' => 
             array (
+              'userrepositoryinterface' => 'App\\Repositories\\Contracts\\UserRepositoryInterface',
+              'userrepository' => 'App\\Repositories\\UserRepository',
               'serviceprovider' => 'Illuminate\\Support\\ServiceProvider',
             ),
              'constUses' => 
@@ -3072,6 +3555,1743 @@ return [
            'final' => false,
            'static' => false,
            'returnType' => 'void',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Repositories/Contracts/TodoRepositoryInterface.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedInterfaceNode::__set_state(array(
+       'name' => 'App\\Repositories\\Contracts\\TodoRepositoryInterface',
+       'phpDoc' => NULL,
+       'extends' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getAll',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Récupère tous les todos.
+     *
+     * @return Collection
+     */',
+             'namespace' => 'App\\Repositories\\Contracts',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Database\\Eloquent\\Collection',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'findById',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Récupère un todo par son ID.
+     *
+     * @param int $id
+     * @return Todo|null
+     */',
+             'namespace' => 'App\\Repositories\\Contracts',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => '?App\\Models\\Todo',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'id',
+               'type' => 'int',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'create',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Crée un nouveau todo.
+     *
+     * @param array $data
+     * @return Todo
+     */',
+             'namespace' => 'App\\Repositories\\Contracts',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'App\\Models\\Todo',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'data',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'update',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Met à jour un todo.
+     *
+     * @param Todo $todo
+     * @param array $data
+     * @return Todo
+     */',
+             'namespace' => 'App\\Repositories\\Contracts',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'App\\Models\\Todo',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'todo',
+               'type' => 'App\\Models\\Todo',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'data',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'delete',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Supprime un todo.
+     *
+     * @param Todo $todo
+     * @return bool
+     */',
+             'namespace' => 'App\\Repositories\\Contracts',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'todo',
+               'type' => 'App\\Models\\Todo',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+    )),
+  ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Repositories/Contracts/UserRepositoryInterface.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedInterfaceNode::__set_state(array(
+       'name' => 'App\\Repositories\\Contracts\\UserRepositoryInterface',
+       'phpDoc' => NULL,
+       'extends' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getVerifiedUsers',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Récupère tous les utilisateurs vérifiés.
+     *
+     * @return Collection
+     */',
+             'namespace' => 'App\\Repositories\\Contracts',
+             'uses' => 
+            array (
+              'user' => 'App\\Models\\User',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Database\\Eloquent\\Collection',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'findById',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Récupère un utilisateur par son ID.
+     *
+     * @param int $id
+     * @return User|null
+     */',
+             'namespace' => 'App\\Repositories\\Contracts',
+             'uses' => 
+            array (
+              'user' => 'App\\Models\\User',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => '?App\\Models\\User',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'id',
+               'type' => 'int',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'create',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Crée un nouvel utilisateur.
+     *
+     * @param array $data
+     * @return User
+     */',
+             'namespace' => 'App\\Repositories\\Contracts',
+             'uses' => 
+            array (
+              'user' => 'App\\Models\\User',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'App\\Models\\User',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'data',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'update',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Met à jour un utilisateur.
+     *
+     * @param User $user
+     * @param array $data
+     * @return User
+     */',
+             'namespace' => 'App\\Repositories\\Contracts',
+             'uses' => 
+            array (
+              'user' => 'App\\Models\\User',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'App\\Models\\User',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'user',
+               'type' => 'App\\Models\\User',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'data',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'delete',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Supprime un utilisateur.
+     *
+     * @param User $user
+     * @return bool
+     */',
+             'namespace' => 'App\\Repositories\\Contracts',
+             'uses' => 
+            array (
+              'user' => 'App\\Models\\User',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'user',
+               'type' => 'App\\Models\\User',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+    )),
+  ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Repositories/TodoRepository.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Repositories\\TodoRepository',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+        0 => 'App\\Repositories\\Contracts\\TodoRepositoryInterface',
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getAll',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Récupère tous les todos.
+     *
+     * @return Collection
+     */',
+             'namespace' => 'App\\Repositories',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'todorepositoryinterface' => 'App\\Repositories\\Contracts\\TodoRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Database\\Eloquent\\Collection',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'findById',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Récupère un todo par son ID.
+     *
+     * @param int $id
+     * @return Todo|null
+     */',
+             'namespace' => 'App\\Repositories',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'todorepositoryinterface' => 'App\\Repositories\\Contracts\\TodoRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => '?App\\Models\\Todo',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'id',
+               'type' => 'int',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'create',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Crée un nouveau todo.
+     *
+     * @param array $data
+     * @return Todo
+     */',
+             'namespace' => 'App\\Repositories',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'todorepositoryinterface' => 'App\\Repositories\\Contracts\\TodoRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'App\\Models\\Todo',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'data',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'update',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Met à jour un todo.
+     *
+     * @param Todo $todo
+     * @param array $data
+     * @return Todo
+     */',
+             'namespace' => 'App\\Repositories',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'todorepositoryinterface' => 'App\\Repositories\\Contracts\\TodoRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'App\\Models\\Todo',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'todo',
+               'type' => 'App\\Models\\Todo',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'data',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'delete',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Supprime un todo.
+     *
+     * @param Todo $todo
+     * @return bool
+     */',
+             'namespace' => 'App\\Repositories',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'todorepositoryinterface' => 'App\\Repositories\\Contracts\\TodoRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'todo',
+               'type' => 'App\\Models\\Todo',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Repositories/UserRepository.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Repositories\\UserRepository',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+        0 => 'App\\Repositories\\Contracts\\UserRepositoryInterface',
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getVerifiedUsers',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Récupère tous les utilisateurs vérifiés.
+     *
+     * @return Collection
+     */',
+             'namespace' => 'App\\Repositories',
+             'uses' => 
+            array (
+              'user' => 'App\\Models\\User',
+              'userrepositoryinterface' => 'App\\Repositories\\Contracts\\UserRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Database\\Eloquent\\Collection',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'findById',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Récupère un utilisateur par son ID.
+     *
+     * @param int $id
+     * @return User|null
+     */',
+             'namespace' => 'App\\Repositories',
+             'uses' => 
+            array (
+              'user' => 'App\\Models\\User',
+              'userrepositoryinterface' => 'App\\Repositories\\Contracts\\UserRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => '?App\\Models\\User',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'id',
+               'type' => 'int',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'create',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Crée un nouvel utilisateur.
+     *
+     * @param array $data
+     * @return User
+     */',
+             'namespace' => 'App\\Repositories',
+             'uses' => 
+            array (
+              'user' => 'App\\Models\\User',
+              'userrepositoryinterface' => 'App\\Repositories\\Contracts\\UserRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'App\\Models\\User',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'data',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'update',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Met à jour un utilisateur.
+     *
+     * @param User $user
+     * @param array $data
+     * @return User
+     */',
+             'namespace' => 'App\\Repositories',
+             'uses' => 
+            array (
+              'user' => 'App\\Models\\User',
+              'userrepositoryinterface' => 'App\\Repositories\\Contracts\\UserRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'App\\Models\\User',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'user',
+               'type' => 'App\\Models\\User',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'data',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'delete',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Supprime un utilisateur.
+     *
+     * @param User $user
+     * @return bool
+     */',
+             'namespace' => 'App\\Repositories',
+             'uses' => 
+            array (
+              'user' => 'App\\Models\\User',
+              'userrepositoryinterface' => 'App\\Repositories\\Contracts\\UserRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'user',
+               'type' => 'App\\Models\\User',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Services/TodoService.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Services\\TodoService',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param TodoRepositoryInterface $todoRepository
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'todorepositoryinterface' => 'App\\Repositories\\Contracts\\TodoRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'todoRepository',
+               'type' => 'App\\Repositories\\Contracts\\TodoRepositoryInterface',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getAllTodos',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Récupère tous les todos.
+     *
+     * @return Collection
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'todorepositoryinterface' => 'App\\Repositories\\Contracts\\TodoRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Database\\Eloquent\\Collection',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'findTodoById',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Récupère un todo par son ID.
+     *
+     * @param int $id
+     * @return Todo|null
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'todorepositoryinterface' => 'App\\Repositories\\Contracts\\TodoRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => '?App\\Models\\Todo',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'id',
+               'type' => 'int',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'createTodo',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Crée un nouveau todo.
+     *
+     * @param array $data
+     * @return Todo
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'todorepositoryinterface' => 'App\\Repositories\\Contracts\\TodoRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'App\\Models\\Todo',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'data',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'updateTodo',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Met à jour un todo.
+     *
+     * @param Todo $todo
+     * @param array $data
+     * @return Todo
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'todorepositoryinterface' => 'App\\Repositories\\Contracts\\TodoRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'App\\Models\\Todo',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'todo',
+               'type' => 'App\\Models\\Todo',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'data',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'deleteTodo',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Supprime un todo.
+     *
+     * @param Todo $todo
+     * @return bool
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'todorepositoryinterface' => 'App\\Repositories\\Contracts\\TodoRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'todo',
+               'type' => 'App\\Models\\Todo',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/app/Services/UserService.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Services\\UserService',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param UserRepositoryInterface $userRepository
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'user' => 'App\\Models\\User',
+              'userrepositoryinterface' => 'App\\Repositories\\Contracts\\UserRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+              'hash' => 'Illuminate\\Support\\Facades\\Hash',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'userRepository',
+               'type' => 'App\\Repositories\\Contracts\\UserRepositoryInterface',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getVerifiedUsers',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Récupère tous les utilisateurs vérifiés.
+     *
+     * @return Collection
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'user' => 'App\\Models\\User',
+              'userrepositoryinterface' => 'App\\Repositories\\Contracts\\UserRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+              'hash' => 'Illuminate\\Support\\Facades\\Hash',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Database\\Eloquent\\Collection',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'findById',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Récupère un utilisateur par son ID.
+     *
+     * @param int $id
+     * @return User|null
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'user' => 'App\\Models\\User',
+              'userrepositoryinterface' => 'App\\Repositories\\Contracts\\UserRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+              'hash' => 'Illuminate\\Support\\Facades\\Hash',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => '?App\\Models\\User',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'id',
+               'type' => 'int',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'createUser',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Crée un nouvel utilisateur.
+     *
+     * @param array $data
+     * @return User
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'user' => 'App\\Models\\User',
+              'userrepositoryinterface' => 'App\\Repositories\\Contracts\\UserRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+              'hash' => 'Illuminate\\Support\\Facades\\Hash',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'App\\Models\\User',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'data',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'updateUser',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Met à jour un utilisateur.
+     *
+     * @param User $user
+     * @param array $data
+     * @return User
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'user' => 'App\\Models\\User',
+              'userrepositoryinterface' => 'App\\Repositories\\Contracts\\UserRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+              'hash' => 'Illuminate\\Support\\Facades\\Hash',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'App\\Models\\User',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'user',
+               'type' => 'App\\Models\\User',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'data',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'deleteUser',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Supprime un utilisateur.
+     *
+     * @param User $user
+     * @return bool
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'user' => 'App\\Models\\User',
+              'userrepositoryinterface' => 'App\\Repositories\\Contracts\\UserRepositoryInterface',
+              'collection' => 'Illuminate\\Database\\Eloquent\\Collection',
+              'hash' => 'Illuminate\\Support\\Facades\\Hash',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'user',
+               'type' => 'App\\Models\\User',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/macbookpro/Desktop/Laravel/Qualite Code/code-propre/database/factories/TodoFactory.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'Database\\Factories\\TodoFactory',
+       'phpDoc' => 
+      \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+         'phpDocString' => '/**
+ * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\Todo>
+ */',
+         'namespace' => 'Database\\Factories',
+         'uses' => 
+        array (
+          'todo' => 'App\\Models\\Todo',
+          'user' => 'App\\Models\\User',
+          'factory' => 'Illuminate\\Database\\Eloquent\\Factories\\Factory',
+        ),
+         'constUses' => 
+        array (
+        ),
+      )),
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Database\\Eloquent\\Factories\\Factory',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'definition',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Define the model\'s default state.
+     *
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'Database\\Factories',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'user' => 'App\\Models\\User',
+              'factory' => 'Illuminate\\Database\\Eloquent\\Factories\\Factory',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'completed',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Indicate that the todo is completed.
+     */',
+             'namespace' => 'Database\\Factories',
+             'uses' => 
+            array (
+              'todo' => 'App\\Models\\Todo',
+              'user' => 'App\\Models\\User',
+              'factory' => 'Illuminate\\Database\\Eloquent\\Factories\\Factory',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'static',
            'parameters' => 
           array (
           ),
