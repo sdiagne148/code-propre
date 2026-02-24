@@ -128,3 +128,33 @@ jobs:
       # Vérification du style de code (Pint en mode --test, pas de modification)
       - name: Run Laravel Pint (style)
         run: ./vendor/bin/pint --test
+
+  # Job 3 : Build des assets frontend (Node.js, npm, Vite)
+  # ---------------------------------------------------------------------------
+  frontend:
+      name: Frontend Build
+      runs-on: ubuntu-latest
+
+      steps:
+        - uses: actions/checkout@v4
+
+        # Node.js 20 avec cache npm
+        - name: Setup Node.js
+          uses: actions/setup-node@v4
+          with:
+            node-version: '20'
+            cache: 'npm'
+            cache-dependency-path: package-lock.json
+
+        - name: Install dependencies
+          run: npm ci
+
+        - name: Build assets
+          run: npm run build
+
+        # Sauvegarde du build pour le job deploy (artifact)
+        - name: Upload build artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            name: frontend-build
+            path: public/build
