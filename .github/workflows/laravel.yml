@@ -102,3 +102,29 @@ jobs:
         with:
           files: coverage.xml
           fail_ci_if_error: false
+
+  # ---------------------------------------------------------------------------
+  # Job 2 : Qualité de code (PHPStan + Laravel Pint)
+  # ---------------------------------------------------------------------------
+  code-quality:
+    name: Code Quality
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      # Analyse statique du code (détection d'erreurs)
+      - name: Run PHPStan
+        run: ./vendor/bin/phpstan analyse --memory-limit=512M
+
+      # Vérification du style de code (Pint en mode --test, pas de modification)
+      - name: Run Laravel Pint (style)
+        run: ./vendor/bin/pint --test
