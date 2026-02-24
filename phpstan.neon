@@ -18,5 +18,6 @@ parameters:
         - bootstrap/cache
         - node_modules (?)
         - public
+        - config/database
     tmpDir: storage/.phpstan
 
