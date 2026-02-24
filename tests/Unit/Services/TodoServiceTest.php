@@ -15,6 +15,7 @@ class TodoServiceTest extends TestCase
     use RefreshDatabase;
 
     private TodoService $todoService;
+
     private $mockRepository;
 
     protected function setUp(): void

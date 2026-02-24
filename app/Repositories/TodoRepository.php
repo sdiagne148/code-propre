@@ -10,8 +10,6 @@ class TodoRepository implements TodoRepositoryInterface
 {
     /**
      * Récupère tous les todos.
-     *
-     * @return Collection
      */
     public function getAll(): Collection
     {
@@ -20,9 +18,6 @@ class TodoRepository implements TodoRepositoryInterface
 
     /**
      * Récupère un todo par son ID.
-     *
-     * @param int $id
-     * @return Todo|null
      */
     public function findById(int $id): ?Todo
     {
@@ -31,9 +26,6 @@ class TodoRepository implements TodoRepositoryInterface
 
     /**
      * Crée un nouveau todo.
-     *
-     * @param array $data
-     * @return Todo
      */
     public function create(array $data): Todo
     {
@@ -42,22 +34,16 @@ class TodoRepository implements TodoRepositoryInterface
 
     /**
      * Met à jour un todo.
-     *
-     * @param Todo $todo
-     * @param array $data
-     * @return Todo
      */
     public function update(Todo $todo, array $data): Todo
     {
         $todo->update($data);
+
         return $todo->fresh();
     }
 
     /**
      * Supprime un todo.
-     *
-     * @param Todo $todo
-     * @return bool
      */
     public function delete(Todo $todo): bool
     {

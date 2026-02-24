@@ -2,28 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Todo;
-use Illuminate\Http\Request;
 use App\Services\TodoService;
 use App\Services\UserService;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Models\User;
 
 class TodoController extends Controller
 {
-    /**
-     * @param TodoService $todoService
-     */
     public function __construct(
         private readonly TodoService $todoService,
         private readonly UserService $userService
-    ) {
-    }
+    ) {}
 
     /**
      * Affiche la liste des tâches.
-     *
-     * @return View
      */
     public function index(): View
     {

@@ -9,18 +9,12 @@ use Illuminate\Support\Facades\Hash;
 
 class UserService
 {
-    /**
-     * @param UserRepositoryInterface $userRepository
-     */
     public function __construct(
         private readonly UserRepositoryInterface $userRepository
-    ) {
-    }
+    ) {}
 
     /**
      * Récupère tous les utilisateurs vérifiés.
-     *
-     * @return Collection
      */
     public function getVerifiedUsers(): Collection
     {
@@ -29,9 +23,6 @@ class UserService
 
     /**
      * Récupère un utilisateur par son ID.
-     *
-     * @param int $id
-     * @return User|null
      */
     public function findById(int $id): ?User
     {
@@ -40,9 +31,6 @@ class UserService
 
     /**
      * Crée un nouvel utilisateur.
-     *
-     * @param array $data
-     * @return User
      */
     public function createUser(array $data): User
     {
@@ -61,10 +49,6 @@ class UserService
 
     /**
      * Met à jour un utilisateur.
-     *
-     * @param User $user
-     * @param array $data
-     * @return User
      */
     public function updateUser(User $user, array $data): User
     {
@@ -77,7 +61,7 @@ class UserService
 
         ];
 
-        if (isset($data['password']) && !empty($data['password'])) {
+        if (isset($data['password']) && ! empty($data['password'])) {
             $updateData['password'] = Hash::make($data['password']);
         }
 
@@ -86,9 +70,6 @@ class UserService
 
     /**
      * Supprime un utilisateur.
-     *
-     * @param User $user
-     * @return bool
      */
     public function deleteUser(User $user): bool
     {

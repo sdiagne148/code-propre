@@ -11,13 +11,9 @@ use Illuminate\View\View;
 
 class UserController extends Controller
 {
-    /**
-     * @param UserService $userService
-     */
     public function __construct(
         private readonly UserService $userService
-    ) {
-    }
+    ) {}
 
     /**
      * Display a listing of the resource.

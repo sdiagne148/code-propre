@@ -7,7 +7,6 @@ use App\Repositories\Contracts\UserRepositoryInterface;
 use App\Services\UserService;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Hash;
 use Mockery;
 use Tests\TestCase;
 
@@ -16,6 +15,7 @@ class UserServiceTest extends TestCase
     use RefreshDatabase;
 
     private UserService $userService;
+
     private $mockRepository;
 
     protected function setUp(): void
@@ -135,7 +135,7 @@ class UserServiceTest extends TestCase
                     && array_key_exists('phone', $data)
                     && array_key_exists('bio', $data)
                     && array_key_exists('avatar_url', $data)
-                    && !isset($data['password']);
+                    && ! isset($data['password']);
             }))
             ->andReturn($updatedUser);
 
