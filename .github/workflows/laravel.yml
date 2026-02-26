@@ -156,3 +156,41 @@ jobs:
           with:
             name: frontend-build
             path: public/build
+  # ---------------------------------------------------------------------------
+  # Job 4 : Déploiement en production (uniquement push sur main)
+  # ---------------------------------------------------------------------------
+  deploy:
+      name: Deploy to Production
+      # Attendre que tous les jobs de validation aient réussi
+      needs: [tests, code-quality, frontend]
+      # Exécution uniquement sur push vers main (pas sur PR ni develop)
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      runs-on: ubuntu-latest
+
+      steps:
+        - uses: actions/checkout@v4
+
+        # Récupération du build frontend produit par le job "frontend"
+        - name: Download frontend artifacts
+          uses: actions/download-artifact@v4
+          with:
+            name: frontend-build
+            path: public/build
+
+        # Connexion SSH au serveur et exécution des commandes de déploiement
+        - name: Deploy to server
+          uses: appleboy/ssh-action@v1.0.3
+          with:
+            host: ${{ secrets.SERVER_HOST }}
+            username: ${{ secrets.SERVER_USER }}
+            key: ${{ secrets.SERVER_SSH_KEY }}
+            # Commandes exécutées sur le serveur (pull, composer, migrations, caches, reload FPM)
+            script: |
+              cd /var/www/app
+              git pull origin main
+              composer install --no-dev --optimize-autoloader
+              php artisan migrate --force
+              php artisan config:cache
+              php artisan route:cache
+              php artisan view:cache
+              sudo systemctl reload php8.2-fpm
