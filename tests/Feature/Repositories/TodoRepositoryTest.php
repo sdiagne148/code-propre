@@ -17,7 +17,7 @@ class TodoRepositoryTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->todoRepository = new TodoRepository;
+        $this->todoRepository = new TodoRepository();
     }
 
     /**

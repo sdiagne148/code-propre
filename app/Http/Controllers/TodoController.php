@@ -12,7 +12,8 @@ class TodoController extends Controller
     public function __construct(
         private readonly TodoService $todoService,
         private readonly UserService $userService
-    ) {}
+    ) {
+    }
 
     /**
      * Affiche la liste des tâches.

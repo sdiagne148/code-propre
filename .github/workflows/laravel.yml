@@ -12,7 +12,7 @@ on:
 
 jobs:
   # ---------------------------------------------------------------------------
-  # Job 1 : Tests unitaires et fonctionnels (PHP 8.2 + 8.3, MySQL, couverture)
+  # Job 1 : Tests unitaires et fonctionnels (PHP 8.2, MySQL, couverture)
   # ---------------------------------------------------------------------------
   tests:
     name: Tests (PHP ${{ matrix.php-version }})
@@ -128,6 +128,10 @@ jobs:
       # Vérification du style de code (Pint en mode --test, pas de modification)
       - name: Run Laravel Pint (style)
         run: ./vendor/bin/pint --test
+
+      # Vérification du style de code (PHP CS Fixer en mode --test, pas de modification)
+      - name: Run PHP CS Fixer
+        run: ./vendor/bin/php-cs-fixer fix --dry-run --diff --verbose
 
   # Job 3 : Build des assets frontend (Node.js, npm, Vite)
   # ---------------------------------------------------------------------------

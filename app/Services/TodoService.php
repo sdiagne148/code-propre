@@ -10,7 +10,8 @@ class TodoService
 {
     public function __construct(
         private readonly TodoRepositoryInterface $todoRepository
-    ) {}
+    ) {
+    }
 
     /**
      * Récupère tous les todos.

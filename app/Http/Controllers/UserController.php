@@ -13,7 +13,8 @@ class UserController extends Controller
 {
     public function __construct(
         private readonly UserService $userService
-    ) {}
+    ) {
+    }
 
     /**
      * Display a listing of the resource.

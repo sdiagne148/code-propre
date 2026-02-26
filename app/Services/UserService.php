@@ -11,7 +11,8 @@ class UserService
 {
     public function __construct(
         private readonly UserRepositoryInterface $userRepository
-    ) {}
+    ) {
+    }
 
     /**
      * Récupère tous les utilisateurs vérifiés.
