@@ -190,7 +190,7 @@ jobs:
             key: ${{ secrets.SERVER_SSH_KEY }}
             # Commandes exécutées sur le serveur (pull, composer, migrations, caches, reload FPM)
             script: |
-              cd /var/www/app
+              cd "${{ secrets.SERVER_PATH }}"
               git pull origin main
               composer install --no-dev --optimize-autoloader
               php artisan migrate --force
