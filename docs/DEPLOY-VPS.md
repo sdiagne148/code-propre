@@ -159,6 +159,20 @@ sudo systemctl reload nginx
 sudo systemctl reload php8.2-fpm
 ```
 
+# Nginx
+sudo systemctl status nginx
+sudo systemctl start nginx
+sudo systemctl stop nginx
+sudo systemctl restart nginx     # stop + start
+sudo systemctl reload nginx      # recharge la config sans couper les connexions
+
+# PHP-FPM 8.2
+sudo systemctl status php8.2-fpm
+sudo systemctl start php8.2-fpm
+sudo systemctl stop php8.2-fpm
+sudo systemctl restart php8.2-fpm
+sudo systemctl reload php8.2-fpm
+
 Ensuite, depuis ton navigateur : `http://157.180.45.17` (ou ton domaine) doit afficher l’application Laravel.
 
 ## 7. Secrets GitHub pour le job Deploy

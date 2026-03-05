@@ -1,0 +1,124 @@
+# docker-compose.yml
+# Premier lancement : créer .env (voir .env.example) avec DB_HOST=mysql, REDIS_HOST=redis.
+# Si vendor/ n'existe pas : docker compose run --rm app composer install --no-dev
+
+version: '3.8'
+
+services:
+  # Application Laravel (PHP-FPM)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: todo-app:latest
+    container_name: todo-app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - todo
+    depends_on:
+      - mysql
+      - redis
+
+  # Serveur Web Nginx
+  nginx:
+    image: nginx:alpine
+    container_name: todo-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./docker/nginx/ssl:/etc/nginx/ssl
+    networks:
+      - todo
+    depends_on:
+      - app
+
+  # Base de données MySQL
+  mysql:
+    image: mysql:8.0
+    container_name: todo-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-${DB_PASSWORD}}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    ports:
+      - "3306:3306"
+    networks:
+      - todo
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Cache Redis
+  redis:
+    image: redis:7-alpine
+    container_name: todo-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - todo
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Queue Worker
+  queue:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: todo-queue
+    restart: unless-stopped
+    command: php artisan queue:work --tries=3 --timeout=90
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - todo
+    depends_on:
+      - mysql
+      - redis
+
+  # Scheduler (Cron)
+  scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: todo-scheduler
+    restart: unless-stopped
+    command: sh -c "while true; do php artisan schedule:run --verbose --no-interaction & sleep 60; done"
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - todo
+    depends_on:
+      - mysql
+      - redis
+
+# Volumes persistants
+volumes:
+  mysql_data:
+    driver: local
+  redis_data:
+    driver: local
+
+# Réseau isolé
+networks:
+  todo:
+    driver: bridge

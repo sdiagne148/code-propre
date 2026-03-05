@@ -1,0 +1,37 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Dependencies (réinstallées dans l’image)
+/node_modules
+/vendor
+
+# Environnement (à fournir au runtime)
+.env
+.env.*
+!.env.example
+
+# IDE, OS, cache
+.idea
+.vscode
+*.log
+.DS_Store
+.phpunit.result.cache
+.phpunit.cache
+.php-cs-fixer.cache
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+
+# Tests et doc (optionnel, allège l’image)
+/tests
+/docs
+*.md
+!README.md
+
+# Docker (éviter de copier le contexte inutile)
+Dockerfile
+docker-compose*.yml
+.dockerignore
