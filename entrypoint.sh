@@ -47,4 +47,4 @@ echo "Exécution des migrations..."
 php artisan migrate --force
 
 echo "Démarrage de PHP-FPM..."
-exec su-exec todo php-fpm
+exec gosu todo php-fpm

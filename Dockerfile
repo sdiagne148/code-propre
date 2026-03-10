@@ -14,12 +14,12 @@ COPY . .
 RUN composer dump-autoload --optimize --classmap-authoritative
 
 # Stage 2: Production
-FROM php:8.32-fpm-alpine
+FROM php:8.3-fpm
 
 # Composer (pour l’entrypoint : composer install si vendor/ absent)
 COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 
-# Installation des extensions PHP + su-exec (pour drop privileges dans entrypoint)
+# Dépendances système pour les extensions PHP + gosu (drop privileges dans entrypoint)
 RUN apk add --no-cache \
     libpng-dev \
     libjpeg-turbo-dev \
@@ -28,8 +28,10 @@ RUN apk add --no-cache \
     unzip \
     git \
     mysql-client \
-    su-exec \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    gosu
+
+# Configuration et compilation des extensions PHP (séparé pour éviter échecs cachés)
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) \
     pdo \
     pdo_mysql \

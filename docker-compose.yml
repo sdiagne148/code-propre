@@ -42,7 +42,7 @@ services:
   # Base de données MySQL
   mysql:
     image: mysql:8.0
-    container_name: todo-mysql
+    container_name: todo-mysql-v1
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-${DB_PASSWORD}}
@@ -80,36 +80,36 @@ services:
       retries: 5
 
   # Queue Worker
-  queue:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: todo-queue
-    restart: unless-stopped
-    command: php artisan queue:work --tries=3 --timeout=90
-    volumes:
-      - ./:/var/www/html
-    networks:
-      - todo
-    depends_on:
-      - mysql
-      - redis
+  # queue:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: todo-queue
+  #   restart: unless-stopped
+  #   command: php artisan queue:work --tries=3 --timeout=90
+  #   volumes:
+  #     - ./:/var/www/html
+  #   networks:
+  #     - todo
+  #   depends_on:
+  #     - mysql
+  #     - redis
 
   # Scheduler (Cron)
-  scheduler:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: todo-scheduler
-    restart: unless-stopped
-    command: sh -c "while true; do php artisan schedule:run --verbose --no-interaction & sleep 60; done"
-    volumes:
-      - ./:/var/www/html
-    networks:
-      - todo
-    depends_on:
-      - mysql
-      - redis
+  # scheduler:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: todo-scheduler
+  #   restart: unless-stopped
+  #   command: sh -c "while true; do php artisan schedule:run --verbose --no-interaction & sleep 60; done"
+  #   volumes:
+  #     - ./:/var/www/html
+  #   networks:
+  #     - todo
+  #   depends_on:
+  #     - mysql
+  #     - redis
 
 # Volumes persistants
 volumes:
