@@ -26,6 +26,9 @@ until php artisan db:show 2>/dev/null; do
 done
 echo "Base de données connectée"
 
+echo "Exécution des migrations..."
+php artisan migrate --force
+
 echo "Configuration des permissions..."
 chown -R todo:todo /var/www/html/storage /var/www/html/bootstrap/cache
 chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
@@ -35,7 +38,7 @@ php artisan package:discover --ansi
 
 echo "Nettoyage du cache..."
 php artisan config:clear
-php artisan cache:clear
+php artisan cache:clear 2>/dev/null || true
 php artisan view:clear
 
 echo "Optimisation Laravel..."
@@ -43,8 +46,5 @@ php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
-echo "Exécution des migrations..."
-php artisan migrate --force
-
 echo "Démarrage de PHP-FPM..."
-exec gosu todo php-fpm
+exec php-fpm

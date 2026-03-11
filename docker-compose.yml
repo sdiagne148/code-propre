@@ -21,8 +21,14 @@ services:
     depends_on:
       - mysql
       - redis
+    healthcheck:
+      test: ["CMD", "php", "-r", "$$c=@fsockopen('127.0.0.1',9000);if($$c){fclose($$c);exit(0);}exit(1);"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 120s
 
-  # Serveur Web Nginx
+  # Serveur Web Nginx (démarre avec l'app ; en cas de 502, attendre 1–2 min que PHP-FPM soit prêt)
   nginx:
     image: nginx:alpine
     container_name: todo-nginx
@@ -79,7 +85,7 @@ services:
       timeout: 5s
       retries: 5
 
-  # Queue Worker
+  # Queue Worker (Exécute les jobs en file (emails, traitements en arrière-plan)
   # queue:
   #   build:
   #     context: .
@@ -95,7 +101,7 @@ services:
   #     - mysql
   #     - redis
 
-  # Scheduler (Cron)
+  # Scheduler (Lance les tâches planifiées (équivalent cron de Laravel))
   # scheduler:
   #   build:
   #     context: .
