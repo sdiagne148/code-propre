@@ -82,6 +82,7 @@ Aucune commande manuelle obligatoire : dépendances, clé, migrations sont gér�
 |-------------------|------|
 | **`Dockerfile`** | Build de l’image PHP 8.2-FPM (Composer + extensions + utilisateur `todo`). |
 | **`docker-compose.yml`** | Définition des services : `app` (Laravel), `nginx`, `mysql`, `redis`, `queue`, `scheduler`. |
+| **`docker-compose.pull.yml`** | Même stack en utilisant l’image Docker Hub pour `app` (sans build). Pour testeurs / démo. |
 | **`docker/nginx/default.conf`** | Configuration Nginx (racine = `public/`, PHP vers `app:9000`). |
 | **`docker/nginx/ssl/`** | Dossier pour certificats HTTPS (optionnel). |
 | **`docker/mysql/my.cnf`** | Configuration MySQL (utf8mb4, collation). |
@@ -100,7 +101,38 @@ Aucune commande manuelle obligatoire : dépendances, clé, migrations sont gér�
 Pour utiliser la **queue** en Redis, mets dans `.env` :  
 `QUEUE_CONNECTION=redis` et `REDIS_HOST=redis`.
 
-## 6. Dépannage rapide
+## 6. Tester avec l’image Docker Hub (sans builder)
+
+Si l’image est déjà publiée sur Docker Hub (ex. `dserigne/todo-app:latest`), un utilisateur peut faire tourner **toute la stack** (app + MySQL + Nginx + Redis) sans construire l’image lui‑même.
+
+**Important :** `docker pull dserigne/todo-app:latest` ne récupère que l’image de l’application. Pour que l’app fonctionne, il faut aussi MySQL, Nginx et Redis. Il faut donc cloner le dépôt (pour la config Nginx et le `.env`) et lancer le Compose qui utilise l’image.
+
+### Étapes pour le testeur
+
+1. **Cloner le dépôt** (pour avoir `docker-compose.pull.yml`, `docker/nginx/`, `.env.example`) :
+   ```bash
+   git clone <url-du-dépôt>   # ex. https://github.com/dserigne/code-propre.git
+   cd code-propre
+   ```
+
+2. **Créer le fichier `.env`** à partir de `.env.example` et renseigner au minimum la base de données :
+   ```bash
+   cp .env.example .env
+   ```
+   Dans `.env`, vérifier notamment :
+   - `DB_HOST=mysql`
+   - `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD` (cohérents avec les variables `MYSQL_*` du Compose)
+
+3. **Lancer toute la stack** avec le Compose « pull » (Compose télécharge l’image si besoin) :
+   ```bash
+   docker compose -f docker-compose.pull.yml up -d
+   ```
+
+4. Ouvrir **http://localhost**. L’entrypoint du conteneur `app` attend MySQL, applique les migrations, etc.
+
+Pour arrêter : `docker compose -f docker-compose.pull.yml down`.
+
+## 7. Dépannage rapide
 
 - **Erreur « Connection refused » vers MySQL**  
   Vérifier que `DB_HOST=mysql`, `DB_PORT=3306` et que le conteneur `todo-mysql` est bien démarré (`docker compose ps`).
@@ -117,7 +149,7 @@ Pour utiliser la **queue** en Redis, mets dans `.env` :
 
 ---
 
-## 7. Entrypoint du conteneur `app`
+## 8. Entrypoint du conteneur `app`
 
 Au démarrage du conteneur **app**, le script **`entrypoint.sh`** exécute dans l’ordre :
 
