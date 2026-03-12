@@ -14,7 +14,7 @@ COPY . .
 RUN composer dump-autoload --optimize --classmap-authoritative
 
 # Stage 2: Production
-FROM php:8.32-fpm-alpine
+FROM php:8.3-fpm-alpine
 
 # Composer (pour l’entrypoint : composer install si vendor/ absent)
 COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
